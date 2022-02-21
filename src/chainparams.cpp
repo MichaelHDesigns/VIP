@@ -53,15 +53,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x00000b586fcc1602de66f9a2733d0ba9fda25002eaf8f941a15569182c6e6cee"))
-    (8, uint256("0x0000004cd8e124bd3281cc348daef1d64044e9fde653686980e7036f3da55b7e"))
-    ;
+    (0, uint256("0x00000b586fcc1602de66f9a2733d0ba9fda25002eaf8f941a15569182c6e6cee"));
 
     
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1548447987,
-    285737,    // * total number of transactions between genesis and last checkpoint
+    0,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     500        // * estimated number of transactions per day after checkpoint
 };
@@ -105,10 +103,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xce;
-        pchMessageStart[1] = 0xde;
-        pchMessageStart[2] = 0xfa;
-        pchMessageStart[3] = 0xf1;
+        pchMessageStart[0] = 0xec;
+        pchMessageStart[1] = 0xd4;
+        pchMessageStart[2] = 0xf3;
+        pchMessageStart[3] = 0xea;
         vAlertPubKey = ParseHex("0472258635716F4057D5EE35D4E831EED6A23D477E5ABEBAF30BCE5309A2905741BD69EBA5BBE5C8245ECA0D964C591419CBDE2B7153E2B417E8231D16BA61B55D0472258635716F4057D5EE35D4E831EED6A23D477E5ABEBAF30BCE5309A2905741BD69EBA5BBE5C8245ECA0D964C591419CBDE2B7153E2B417E8231D16BA61B55D");
         nDefaultPort = 11945;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Vip starting difficulty is 1 / 2^12
@@ -118,19 +116,19 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 60 * 60; // Vip: 1 hour
+        nTargetTimespan = 30; // Vip: 1 hour
         nTargetSpacing = 60;  // Vip: 60 seconds
-        nMaturity = 60;  
+        nMaturity = 6;  
         nMasternodeCollateral = 10000; // 10000 VIP
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut =  1000000 * COIN; //60M VIP
+        nMaxMoneyOut =  999999999999 * COIN; //60M VIP
         nSwiftTxMinFee = 0.01 * COIN;   
 
         /** Height or Time Based Activations **/
         //nPresaleStartBlock = 9000; // Presale Start
         //nPresaleEndBlock = 15000; // Presale End 15000 
         
-        nLastPOWBlock = 950000; // POW ends at block 13000
+        nLastPOWBlock = 100; // POW ends at block 13000
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
         nBlockRecalculateAccumulators = -1; //Trigger a recalculation of accumulators
         nBlockFirstFraudulent = -1; //First block that bad serials emerged
@@ -163,16 +161,11 @@ public:
         nZerocoinStartTime = 2147483647; // Tuesday, January 19, 2038 3:14:07 AM
 
         // DNS Seeders maintaining a dynamic list of active nodes
-        vSeeds.push_back(CDNSSeedData("vipcore.vip", "seed.vipcore.vip"));      // Primary DNS Seeder, need to have a domain name
-        vSeeds.push_back(CDNSSeedData("95.216.112.67:11945", "95.216.112.67"));
-        vSeeds.push_back(CDNSSeedData("155.138.162.108", "155.138.162.108"));
-        vSeeds.push_back(CDNSSeedData("46.151.159.53", "46.151.159.53"));
-        vSeeds.push_back(CDNSSeedData("82.169.168.31", "82.169.168.31"));
-        vSeeds.push_back(CDNSSeedData("95.216.118.219", "95.216.118.219"));
-        vSeeds.push_back(CDNSSeedData("116.202.172.79", "116.202.172.79"));
+        vSeeds.push_back(CDNSSeedData("159.223.150.209", "159.223.150.209"));      // Primary DNS Seeder, need to have a domain name
+
  
         // Base58prefixes Information:  https://en.bitcoin.it/wiki/List_of_address_prefixes      
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 58);   
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);   
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 14);    
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 144);      
         
@@ -270,13 +263,6 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         
-        // Add seeder node information here
-        vSeeds.push_back(CDNSSeedData("vipcore.vip", "seed.vipcore.vip"));      // Primary DNS Seeder, need to have a domain name
-        vSeeds.push_back(CDNSSeedData("51.15.127.79", "51.15.127.79"));
-        vSeeds.push_back(CDNSSeedData("51.15.98.254", "51.15.98.254"));
-        vSeeds.push_back(CDNSSeedData("51.15.37.133", "51.15.37.133"));      
-        vSeeds.push_back(CDNSSeedData("51.15.96.177", "51.15.96.177"));
-        vSeeds.push_back(CDNSSeedData("51.15.112.87", "51.15.112.87"));
         
         // base58Prefixes information 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 125);    
