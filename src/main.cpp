@@ -84,8 +84,8 @@ bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 
-unsigned int nStakeMinAge = 12 * 60 * 60; //Min Stake Age = 12 hours
-//unsigned int nStakeMinAge = 60 * 60; //Min Stake Age = 1 hours
+//unsigned int nStakeMinAge = 12 * 60 * 60; //Min Stake Age = 12 hours
+unsigned int nStakeMinAge = 60 * 60; //Min Stake Age = 1 hours
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in usno) are considered zero fee (for relaying and mining)
@@ -2153,16 +2153,16 @@ int64_t GetBlockValue(int nHeight)
 
     int64_t nSubsidy = 0;
 
-    if (nHeight < 7) {
-        nSubsidy = 100000 * COIN; // Premine Phase
-    } else if (nHeight <= 200000 && nHeight >= 7) {     
-        nSubsidy = 0.2 * COIN; //  POW + POS
+    if (nHeight < 10) {
+        nSubsidy = 2000000 * COIN; // Premine Phase
+    } else if (nHeight <= 200000 && nHeight >= 10) {     
+        nSubsidy = 5000 * COIN; //  POW + POS
     } else if (nHeight <= 350400 && nHeight >= 200000) {
-        nSubsidy = 0.15 * COIN; // First Year
+        nSubsidy = 2500 * COIN; // First Year
     } else if (nHeight <= 700800 && nHeight >= 350401) {
-        nSubsidy = 0.1 * COIN; // First Halving
+        nSubsidy = 1250 * COIN; // First Halving
     } else if (nHeight >= 700801) {
-        nSubsidy = 0.05 * COIN;
+        nSubsidy = 1000 * COIN;
     }
     // Check the coin max supply
     int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
