@@ -108,7 +108,7 @@ public:
         pchMessageStart[2] = 0xf3;
         pchMessageStart[3] = 0xea;
         vAlertPubKey = ParseHex("0472258635716F4057D5EE35D4E831EED6A23D477E5ABEBAF30BCE5309A2905741BD69EBA5BBE5C8245ECA0D964C591419CBDE2B7153E2B417E8231D16BA61B55D0472258635716F4057D5EE35D4E831EED6A23D477E5ABEBAF30BCE5309A2905741BD69EBA5BBE5C8245ECA0D964C591419CBDE2B7153E2B417E8231D16BA61B55D");
-        nDefaultPort = 11945;
+        nDefaultPort = 88888;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Vip starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 350400;   // halving every year ~ 350400 blocks
         nMaxReorganizationDepth = 100;
